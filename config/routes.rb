@@ -1,5 +1,6 @@
 ShortUrl::Application.routes.draw do
   resources :users
+  get '/signup', to: 'users#new'
   get '/*shortcode', to: 'links#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

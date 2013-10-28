@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: links
+#
+#  id          :integer          not null, primary key
+#  user_id     :integer
+#  destination :string(255)
+#  shortcode   :string(255)
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
 class Link < ActiveRecord::Base
   belongs_to :user
 
@@ -10,7 +22,7 @@ class Link < ActiveRecord::Base
 
   def generate_shortcode
     # TODO: Check for collisions
-    self.shortcode = SecureRandom.urlsafe_base64(4)
+    self.shortcode = SecureRandom.urlsafe_base64(4)[0..4]
   end
 
 end
