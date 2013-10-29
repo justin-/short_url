@@ -1,8 +1,14 @@
 class LinksController < ApplicationController
 
-  def index
+  def redirect
     @link = Link.find_by(shortcode: params[:shortcode])
-    redirect_to @link.destination
+    
+    if !@link.nil?
+        redirect_to @link.destination
+    else
+        flash[:error] = "Invalid link: #{params[:shortcode]}"
+        redirect_to root_path
+    end
   end
 
 end

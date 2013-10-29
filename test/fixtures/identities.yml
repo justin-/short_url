@@ -1,14 +1,12 @@
 # == Schema Information
 #
-# Table name: users
+# Table name: identities
 #
 #  id              :integer          not null, primary key
 #  email           :string(255)
 #  password_digest :string(255)
 #  created_at      :datetime
 #  updated_at      :datetime
-#  provider        :string(255)
-#  uid             :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
