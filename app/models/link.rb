@@ -24,8 +24,10 @@ class Link < ActiveRecord::Base
   end
 
   def generate_shortcode
-    # TODO: Check for collisions
-    self.shortcode = SecureRandom.urlsafe_base64(4)[0..4]
+    loop do
+      self.shortcode = (0...5).map { (97 + rand(26)).chr }.join
+      break if !shortcode_exists?(self.shortcode)
+    end
   end
 
   protected

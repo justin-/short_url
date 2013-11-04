@@ -1,5 +1,7 @@
-<li>
-  <span class="shortcode"><%= link_to(nil, build_link_from_shortcode(link.shortcode)) %></span>
-  <span><i class="icon-resize-horizontal"></i></span>
-  <span class="destination"><%= link.destination %></span>
-</li>
+<tr>
+  <td><%= link_to(nil, build_link_from_shortcode(link.shortcode)) %></td>
+  <td><%= link.destination %></td>
+  <td>
+  <%= link_to raw('<i class="icon-trash icon-white"></i>'), link, method: 'delete', data: { confirm: 'are you sure?' }, class: 'btn btn-danger' %>
+  </td>
+</tr>

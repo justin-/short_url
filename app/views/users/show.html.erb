@@ -1,9 +1,18 @@
 <div class="span8">
   <% if @user.links.any? %>
-    <h3>Links (<%= @user.links.count %>)</h3>
-    <ul class="links">
+    <h3>My Links</h3>
+    <table class="table table-striped table-hover table-bordered">
+    <thead>
+      <tr>
+        <th>Short URL</th>
+        <th>Destination</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
       <%= render @links %>
-    </ul>
+    </tbody>
+    </table>
     <%= will_paginate @links %>
   <% end %>
 </div>

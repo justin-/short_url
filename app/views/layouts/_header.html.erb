@@ -6,7 +6,7 @@
         <ul class="nav pull-right">
           <% if signed_in? %>
           <p><%= image_tag current_user.avatar, size: '36x36' %> <%= current_user.email %></p>
-          <p class="pull-right"><%= link_to 'Sign Out', signout_path, method: 'delete' %></p>
+          <p class="pull-right"><%= link_to 'My Links', user_path(current_user) %> | <%= link_to 'Sign Out', signout_path, method: 'delete' %></p>
           <% else %>
           <p><%= image_tag('github-32.png') %> <%= link_to 'Sign in with GitHub', '/auth/github' %>
           <% end %>
