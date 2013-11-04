@@ -3,8 +3,9 @@ ShortUrl::Application.routes.draw do
   root to: 'static_pages#home'
   
   resources :users
+  resources :links, only: [:create, :destroy]
+  resources :sessions, only: [:new, :create, :destroy]
 
-  match '/signup',  to: redirect('/auth/identity/register'), via: 'get'
   match '/signin',  to: 'sessions#new',                      via: 'get'
   match '/auth/:provider/callback', to: 'sessions#create',   via: [:get, :post]
   #match '/auth/failure'

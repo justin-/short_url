@@ -1,1 +1,46 @@
 @import "bootstrap";
+
+@import url(http://fonts.googleapis.com/css?family=Pacifico);
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+header
+{
+  .title {
+    font-family: 'Pacifico', cursive;
+  }
+}
+
+footer
+{
+  color: lightgray;
+}
+
+body {
+  padding-top: 10%;
+  padding-left: 5%;
+  padding-right: 5%;  
+}
+
+input, textarea, select {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+#error_explanation {
+  color: #f00;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  }
+}

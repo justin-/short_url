@@ -9,21 +9,21 @@
 #  updated_at      :datetime
 #  provider        :string(255)
 #  uid             :integer
+#  avatar          :string(255)
 #
 
-class User < OmniAuth::Identity::Models::ActiveRecord
-
-  before_validation :set_defaults
-  
-  before_save { self.email = email.downcase }
+class User < ActiveRecord::Base
+ 
+   before_save { self.email = email.downcase }
     
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
-  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
-                    uniqueness: { case_sensitive: false }
-  has_secure_password
-  validates :password, presence: true
-  validates :provider, presence: true
-  validates :uid, presence: true
+   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
+   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
+                     uniqueness: { case_sensitive: false }
+   has_secure_password
+   validates :password, presence: true
+   validates :provider, presence: true
+   validates :uid, presence: true
+   validates :avatar, presence: true
   
   has_many :links
 
@@ -34,7 +34,7 @@ class User < OmniAuth::Identity::Models::ActiveRecord
   def self.create_from_omniauth(auth)
     generated_password = SecureRandom.hex(10)
     User.create!(email: auth['info']['email'], password: generated_password,
-                 password_confirmation: generated_password, provider: auth['provider'], uid: auth['uid'])
+                 password_confirmation: generated_password, provider: auth['provider'], uid: auth['uid'], avatar: auth['info']['image'])
   end
 
 end

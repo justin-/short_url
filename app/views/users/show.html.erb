@@ -1,14 +1,8 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Password digest:</strong>
-  <%= @user.password_digest %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<div class="span8">
+  <% if @user.links.any? %>
+    <h3>Links (<%= @user.links.count %>)</h3>
+    <ul class="links">
+      <%= render @links %>
+    </ul>
+  <% end %>
+</div>

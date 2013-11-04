@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131028181808) do
+ActiveRecord::Schema.define(version: 20131030144822) do
 
   create_table "identities", force: true do |t|
     t.string   "email"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20131028181808) do
     t.datetime "updated_at"
     t.string   "provider"
     t.integer  "uid"
+    t.string   "avatar"
   end
 
 end
