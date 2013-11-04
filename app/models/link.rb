@@ -13,7 +13,10 @@
 class Link < ActiveRecord::Base
   belongs_to :user
 
-  validates :destination, presence: true
+  before_save :ensure_protocol
+  
+  # maximum length from http://stackoverflow.com/a/417184
+  validates :destination, length: { minimum: 4, maximum: 2000 }
   before_create :generate_shortcode
 
   def shortcode_exists?(shortcode)
@@ -24,5 +27,13 @@ class Link < ActiveRecord::Base
     # TODO: Check for collisions
     self.shortcode = SecureRandom.urlsafe_base64(4)[0..4]
   end
+
+  protected
+
+    def ensure_protocol
+      unless self.destination[/\Ahttp:\/\//] || self.destination[/\Ahttps:\/\//]
+        self.destination = "http://#{self.destination}"
+      end
+    end
 
 end
