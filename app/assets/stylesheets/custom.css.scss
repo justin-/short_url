@@ -11,20 +11,39 @@
 header
 {
   .title {
+    padding-top: 2.5%;
+    float: left;
     font-family: 'Pacifico', cursive;
     font-size: 3em;
+    
+    a:hover {
+      text-decoration: none;
+      color: #0088cc;
+    }
   }
+
+  nav {
+    padding-top: 2%;
+  }
+  
+  .container {
+    height: 95px;
+  }
+}
+
+body {
+  padding-top: 10%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.center {
+  text-align: center;
 }
 
 footer
 {
   color: lightgray;
-}
-
-body {
-  padding-top: 10%;
-  padding-left: 5%;
-  padding-right: 5%;  
 }
 
 input, textarea, select {
@@ -36,12 +55,4 @@ input, textarea, select {
 
 input {
   height: auto !important;
-}
-
-#error_explanation {
-  color: #f00;
-  ul {
-    list-style: none;
-    margin: 0 0 18px 0;
-  }
 }
