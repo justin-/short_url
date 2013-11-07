@@ -1,20 +1,22 @@
-<div class="span8">
-  <% if @user.links.any? %>
-    <h3>My Links</h3>
-    <p><%= link_to raw('<input class="btn btn-primary" type="submit" value="Create New Link"></input>'), root_path %></p>
-    <%= will_paginate @links %>
-    <table class="table table-striped table-hover table-bordered">
-    <thead>
-      <tr>
-        <th>Short URL</th>
-        <th>Destination</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <%= render @links %>
-    </tbody>
-    </table>
-    <%= will_paginate @links %>
-  <% end %>
+<div class="row">
+  <div class="span4 offset1">
+    <% if @user.links.any? %>
+      <h3>My Links</h3>
+      <p><%= link_to raw('<input class="btn btn-primary" type="submit" value="Create New Link"></input>'), root_path %></p>
+      <%= will_paginate @links %>
+      <table class="table table-striped table-hover table-bordered">
+      <thead>
+        <tr>
+          <th>Short URL</th>
+          <th>Destination</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @links %>
+      </tbody>
+      </table>
+      <%= will_paginate @links %>
+    <% end %>
+  </div>
 </div>

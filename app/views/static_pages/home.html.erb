@@ -1,6 +1,5 @@
-<div class="center hero-unit">
-<div class="row">
-  <div class="span6 offset3">
+<div class="span6 center down hero-unit">
+  <div class="center">
   <% if signed_in? %>
     <%= form_for(:link, url: links_path, method: 'post') do |f| %>
       <%= f.text_field :destination, value: 'a longgggg url', onfocus: 'this.value == "a longgggg url" ? this.value = "" : null' %>
@@ -10,5 +9,4 @@
     Sign in first to start shortening your URLs
   <% end %>
   </div>
-</div>
 </div>
